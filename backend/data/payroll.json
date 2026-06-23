@@ -1,0 +1,22 @@
+{
+  "u001": {
+    "basic": 30000,
+    "hra": 15000,
+    "lta": 5000,
+    "pf": 3600,
+    "professionalTax": 200,
+    "gross": 50000,
+    "net": 45000,
+    "ytd": { "gross": 600000, "net": 540000 }
+  },
+  "u002": {
+    "basic": 28000,
+    "hra": 12000,
+    "lta": 4000,
+    "pf": 3400,
+    "professionalTax": 200,
+    "gross": 46000,
+    "net": 41000,
+    "ytd": { "gross": 552000, "net": 492000 }
+  }
+}

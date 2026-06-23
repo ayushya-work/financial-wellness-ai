@@ -1,0 +1,19 @@
+{
+  "name": "financial-wellness-ai-backend",
+  "version": "1.0.0",
+  "description": "Backend for Personalized Financial Wellness & Tax AI Agent",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

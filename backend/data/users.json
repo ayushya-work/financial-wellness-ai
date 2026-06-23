@@ -1,0 +1,16 @@
+[
+  {
+    "id": "u001",
+    "name": "Ayushya Sharma",
+    "email": "ayushya@example.com",
+    "password": "password123",
+    "role": "employee"
+  },
+  {
+    "id": "u002",
+    "name": "Ravi Kumar",
+    "email": "ravi@example.com",
+    "password": "password123",
+    "role": "employee"
+  }
+]
