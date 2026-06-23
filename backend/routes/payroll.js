@@ -1,13 +1,23 @@
+/**
+ * Payroll Routes
+ * GET /api/payroll/:userId - Get payroll data
+ * GET /api/payroll/:userId/summary - Get payroll summary
+ */
+
 const express = require('express');
-const router = express.Router();
-const payrollData = require('../data/payroll.json');
+const { getPayroll, getPayrollSummary } = require('../controllers/payrollController');
 const { validateToken, ensureUserOwnership } = require('../middleware/auth');
 
-// All payroll routes require authentication and user ownership check
-router.get('/:userId', validateToken, ensureUserOwnership, (req, res) => {
-  const data = payrollData[req.params.userId];
-  if (!data) return res.status(404).json({ error: "No payroll data found" });
-  res.json(data);
-});
+const router = express.Router();
+
+// All payroll routes require authentication and ownership check
+router.use(validateToken);
+router.use('/:userId', ensureUserOwnership);
+
+// GET /api/payroll/:userId
+router.get('/:userId', getPayroll);
+
+// GET /api/payroll/:userId/summary
+router.get('/:userId/summary', getPayrollSummary);
 
 module.exports = router;

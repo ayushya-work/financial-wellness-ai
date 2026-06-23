@@ -1,25 +1,15 @@
+/**
+ * AI Routes
+ * POST /api/ai/ask - Ask document-grounded questions about salary
+ */
+
 const express = require('express');
-const router = express.Router();
-const { queryAI } = require('../utils/aiClient');
+const { askAI } = require('../controllers/aiController');
 const { validateToken } = require('../middleware/auth');
 
-// AI query endpoint - requires authentication
-router.post('/ask', validateToken, async (req, res) => {
-  const { prompt, pdfBase64 } = req.body;
-  const userId = req.user.id; // Authenticated user
-  
-  if (!prompt) {
-    return res.status(400).json({ error: "Missing prompt" });
-  }
+const router = express.Router();
 
-  try {
-    // In production, would fetch user's actual uploaded payslip context
-    const response = await queryAI(prompt, pdfBase64, userId);
-    res.json(response);
-  } catch (err) {
-    console.error('AI query error:', err.message);
-    res.status(500).json({ error: "AI query failed", details: err.message });
-  }
-});
+// POST /ask - Ask AI questions about salary (requires authentication)
+router.post('/ask', validateToken, askAI);
 
 module.exports = router;

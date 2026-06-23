@@ -22,6 +22,8 @@ export default function Login({ setUser }) {
       
       // Store token for subsequent requests
       localStorage.setItem('authToken', res.data.token);
+      // Store user data for session persistence
+      localStorage.setItem('user', JSON.stringify(res.data.user));
       setUser(res.data.user);
       alert(`Welcome ${res.data.user.name}`);
     } catch (err) {
@@ -224,3 +226,4 @@ export default function Login({ setUser }) {
     </div>
   );
 }
+

@@ -13,7 +13,51 @@ This application addresses the challenge of payslip complexity by providing:
 
 ---
 
-## 🏗️ System Architecture
+## �️ Enterprise Architecture
+
+This application follows a **layered architecture** with clear separation of concerns:
+
+```
+Routes → Controllers → Services → Data Layer
+```
+
+**Key Features:**
+- ✅ **Centralized Error Handling** — Consistent error responses with structured logging
+- ✅ **Input Validation** — Boundary validation prevents invalid data propagation
+- ✅ **Structured Logging** — Production-grade logging with context
+- ✅ **Service Layer** — Reusable business logic independent of HTTP
+- ✅ **Security Middleware** — Token validation + user ownership checks
+- ✅ **Configuration Management** — Environment-based configuration
+- ✅ **Async Error Handling** — Wrapper eliminates try-catch boilerplate
+
+### Backend Directory Structure
+
+```
+backend/
+├── config/              # Centralized configuration
+├── constants/           # HTTP status, error types, enums
+├── middleware/          # Auth, error handling, CORS
+├── controllers/         # HTTP request handlers (5 domains)
+├── services/            # Business logic (Auth, Payroll, Payslip)
+├── validators/          # Input validation
+├── utils/               # Logger, custom errors, AI prompts, OCR
+├── routes/              # HTTP route definitions
+├── data/                # Static JSON data
+└── server.js            # Express app setup
+```
+
+**Design Patterns Used:**
+- Layered Architecture
+- Service Layer Pattern
+- Async/Await Error Handling
+- Dependency Injection (Implicit)
+- Custom Error Classes
+- Structured Logging
+
+📚 **For detailed architecture breakdown, see [ARCHITECTURE.md](ARCHITECTURE.md)**
+
+---
+
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
