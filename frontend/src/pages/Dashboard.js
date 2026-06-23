@@ -44,7 +44,7 @@ export default function Dashboard({ user, onLogout }) {
 
         <div className="section">
           <h3>📋 Investment Proof Checklist</h3>
-          <InvestmentChecklist userId={user.id} />
+          <InvestmentChecklist userId={user.id} showTitle={false} />
         </div>
       </div>
 

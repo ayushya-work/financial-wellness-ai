@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../services/api';
 
-export default function InvestmentChecklist({ userId }) {
+export default function InvestmentChecklist({ userId, showTitle = true }) {
   const [checklist, setChecklist] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -28,7 +28,7 @@ export default function InvestmentChecklist({ userId }) {
 
   return (
     <div className="checklist-container">
-      <h3>Investment Proof Checklist</h3>
+      {showTitle && <h3>Investment Proof Checklist</h3>}
       <button onClick={fetchChecklist} disabled={loading}>
         {loading ? 'Loading...' : 'View Checklist'}
       </button>
